@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ng2SmartTableModule } from 'ng2-smart-table';
 
 @Component({
   selector: 'ngx-cruz-azul',
