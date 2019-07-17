@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'privado',
+  selector: 'ngx-privado',
   templateUrl: './privado.component.html',
   styleUrls: ['./privado.component.scss'],
 })
