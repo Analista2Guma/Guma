@@ -37,13 +37,13 @@ export class CruzAzulComponent implements OnInit {
       username: 'Antonette',
       email: 'Shanna@melissa.tv',
     },
-    
+
     // ... list of items
-    
+
     {
       id: 11,
       name: 'Nicholas DuBuque',
-      username:'Nicholas.Stanton',
+      username: 'Nicholas.Stanton',
       email: 'Rey.Padberg@rosamond.biz',
     },
   ];
