@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-admin-demo": {
-      "root": "",
+      "root": "Inventory",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {

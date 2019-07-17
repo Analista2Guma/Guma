@@ -8,6 +8,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Cruz Azul',
+    icon: 'nb-list',
+    link: '/pages/cruz-azul',
+    home: true,
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
