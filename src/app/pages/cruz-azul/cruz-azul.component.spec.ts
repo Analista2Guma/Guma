@@ -8,7 +8,7 @@ describe('CruzAzulComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CruzAzulComponent ]
+      declarations: [ CruzAzulComponent ],
     })
     .compileComponents();
   }));

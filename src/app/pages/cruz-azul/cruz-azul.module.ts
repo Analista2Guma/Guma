@@ -5,7 +5,7 @@ import { CruzAzulComponent } from '../cruz-azul/cruz-azul.component';
 @NgModule({
   declarations: [CruzAzulComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+  ],
 })
 export class CruzAzulModule { }
