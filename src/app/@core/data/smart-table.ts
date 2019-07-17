@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   })
 export class SmartTableData {
 
-    CAData:Object[] = [
+    CAData: Object[] = [
         {
             LABORATORIO: 'Naprod',
             ARTICULO: 10118212,
