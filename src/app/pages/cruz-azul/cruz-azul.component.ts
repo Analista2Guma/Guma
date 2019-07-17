@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SmartTableData } from '../../@core/data/smart-table';
+import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
   selector: 'ngx-cruz-azul',
@@ -9,14 +11,14 @@ export class CruzAzulComponent implements OnInit {
 
   settings = {
     columns: {
-      id: {
-        title: 'ID',
+      ARTICULO: {
+        title: '#Articulo',
       },
-      name: {
-        title: 'Full Name',
+      DESCRIPCION: {
+        title: 'Descripcion',
       },
-      username: {
-        title: 'User Name',
+      ORDEN_MINIMA: {
+        title: 'Minima Orden',
       },
       email: {
         title: 'Email',
@@ -24,7 +26,8 @@ export class CruzAzulComponent implements OnInit {
     },
   };
 
-  data = [
+  data: Object[];
+  /*data = [
     {
       id: 1,
       name: 'Leanne Graham',
@@ -46,9 +49,24 @@ export class CruzAzulComponent implements OnInit {
       username: 'Nicholas.Stanton',
       email: 'Rey.Padberg@rosamond.biz',
     },
-  ];
+  ];*/
 
-  constructor() { }
+  source: LocalDataSource = new LocalDataSource();
+
+  constructor(private service: SmartTableData) {
+    const data = this.service.getData();
+    // console.log(data);
+    this.data = data;
+    this.source.load(data);
+  }
+
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
 
   ngOnInit() {
   }
