@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-cruz-azul',
-  templateUrl: './cruz-azul.component.html',
-  styleUrls: ['./cruz-azul.component.scss'],
+  selector: 'privado',
+  templateUrl: './privado.component.html',
+  styleUrls: ['./privado.component.scss'],
 })
-export class CruzAzulComponent implements OnInit {
+export class PrivadoComponent implements OnInit {
 
   settings = {
     columns: {

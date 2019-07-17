@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CruzAzulComponent } from './cruz-azul/cruz-azul.component';
+import { PrivadoComponent } from './privado/privado.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,6 +17,10 @@ const routes: Routes = [{
     {
       path: 'cruz-azul',
       component: CruzAzulComponent,
+    },
+    {
+      path: 'privado',
+      component: PrivadoComponent,
     },
     {
       path: '',
