@@ -18,7 +18,8 @@ export class CruzAzulComponent implements OnInit {
         {
           name: 'view',
           title: 'View',
-        }]
+        },
+      ]
     },
     mode: 'external',
     hideSubHeader: true,
