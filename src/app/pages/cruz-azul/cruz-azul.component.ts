@@ -10,47 +10,62 @@ import { LocalDataSource } from 'ng2-smart-table';
 export class CruzAzulComponent implements OnInit {
 
   settings = {
+    actions: {
+      edit: false,
+      delete: false,
+      position: 'right',
+      custom: [
+        {
+          name: 'view',
+          title: 'View',
+        }]
+    },
+    mode: 'external',
+    hideSubHeader: true,
     columns: {
       ARTICULO: {
         title: '#Articulo',
       },
+      LABORATORIO: {
+        title: 'Laboratorio',
+      },
       DESCRIPCION: {
         title: 'Descripcion',
+      },
+      CLASE_ABC: {
+        title: 'Categoria',
       },
       ORDEN_MINIMA: {
         title: 'Minima Orden',
       },
-      email: {
-        title: 'Email',
+      FACTOR_EMPAQUE: {
+        title: 'Empaque (unidades)',
+      },
+      CANT_DISPONIBLE: {
+        title: 'Disponible',
+      },
+      CANT_PEDIDA: {
+        title: 'Pedida',
+      },
+      CANT_TRANSITO: {
+        title: 'Transito',
+      },
+      CLASE_ABC_privado: {
+        title: 'Categoria (Privado)',
+      },
+      CANT_DISPONIBLE_privado: {
+        title: 'Disponible (Privado)',
+      },
+      CANT_PEDIDA_privado: {
+        title: 'Pedida (Privado)',
+      },
+      CANT_TRANSITO_privado: {
+        title: 'Transito (Privado)',
       },
     },
   };
 
   data: Object[];
-  /*data = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-    },
-
-    // ... list of items+
-
-    {
-      id: 11,
-      name: 'Nicholas DuBuque',
-      username: 'Nicholas.Stanton',
-      email: 'Rey.Padberg@rosamond.biz',
-    },
-  ];*/
-
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private service: SmartTableData) {
