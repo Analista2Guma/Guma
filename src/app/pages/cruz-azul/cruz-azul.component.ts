@@ -92,7 +92,7 @@ export class CruzAzulComponent implements OnInit {
     data.forEach(product => {
       product['pcm'] = product['CONTRATADA'] / 12; // promedio contratado mensual
       product['pvm'] = product['ORDENADO'] / this.mesDeContrato; // promedio vendido mensual
-      product['vc'] = Math.max(product['CONTRATADA'],product['ORDENADO']); // valor critico
+      product['vc'] = Math.max(product['CONTRATADA'], product['ORDENADO']); // valor critico
       product['cumplimiento'] = product['ORDENADO'] / product['CONTRATADA'] * 100; // % de contrato completado
       product['daa'] = product['vc'] * 12; // demanda anual ajustada
       product['md06'] = (product['CANT_DISPONIBLE'] + product['CANT_PEDIDA'] +
