@@ -90,15 +90,15 @@ export class CruzAzulComponent implements OnInit {
     const data = this.service.getData();
     // console.log(data);
     data.forEach(product => {
-      product['pcm'] = product['CONTRATADA']/12;// promedio contratado mensual
-      product['pvm'] = product['ORDENADO']/this.mesDeContrato; // promedio vendido mensual
+      product['pcm'] = product['CONTRATADA'] / 12; // promedio contratado mensual
+      product['pvm'] = product['ORDENADO'] / this.mesDeContrato; // promedio vendido mensual
       product['vc'] = Math.max(product['CONTRATADA'],product['ORDENADO']); // valor critico
-      product['cumplimiento'] = product['ORDENADO']/product['CONTRATADA']*100; // % de contrato completado
-      product['daa'] = product['vc']*12; // demanda anual ajustada
+      product['cumplimiento'] = product['ORDENADO'] / product['CONTRATADA'] * 100; // % de contrato completado
+      product['daa'] = product['vc'] * 12; // demanda anual ajustada
       product['md06'] = (product['CANT_DISPONIBLE'] + product['CANT_PEDIDA'] +
-                        product['CANT_TRANSITO'])/product['vc']; // Meses disponibles bodega 6
+                        product['CANT_TRANSITO']) / product['vc']; // Meses disponibles bodega 6
       product['md02'] = (product['CANT_DISPONIBLE_privado'] + product['CANT_PEDIDA_privado'] +
-                        product['CANT_TRANSITO_privado'])/product['vc']; // Meses disponibles bodega 2
+                        product['CANT_TRANSITO_privado']) / product['vc']; // Meses disponibles bodega 2
       product['pro'] = null; // punto de reorden
       switch (product['CLASE_ABC']) {
         case 'A+':
@@ -117,7 +117,7 @@ export class CruzAzulComponent implements OnInit {
           product['pro'] = 'N/D';
           break;
       }
-      if(product['md06'] <= product['pro']) {
+      if (product['md06'] <= product['pro']) {
         product['pedir?'] = 'PEDIR';
       } else {
         product['pedir?'] = '';
