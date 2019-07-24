@@ -93,7 +93,7 @@ export class CruzAzulComponent implements OnInit {
       product['pcm'] = product['CONTRATADA']/12;// promedio contratado mensual
       product['pvm'] = product['ORDENADO']/this.mesDeContrato; // promedio vendido mensual
       product['vc'] = Math.max(product['CONTRATADA'],product['ORDENADO']); // valor critico
-      product['cumplimiento'] = product['ORDENADO']/product['CONTRATADA']*100 // % de contrato completado
+      product['cumplimiento'] = product['ORDENADO']/product['CONTRATADA']*100; // % de contrato completado
       product['daa'] = product['vc']*12; // demanda anual ajustada
       product['md06'] = (product['CANT_DISPONIBLE'] + product['CANT_PEDIDA'] +
                         product['CANT_TRANSITO'])/product['vc']; // Meses disponibles bodega 6
@@ -122,7 +122,7 @@ export class CruzAzulComponent implements OnInit {
       } else {
         product['pedir?'] = '';
       }
-      console.log(product);
+      // console.log(product);
     });
     this.data = data;
     this.source.load(data);
