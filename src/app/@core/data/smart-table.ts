@@ -26,6 +26,9 @@ export class SmartTableData {
             CANT_DISPONIBLE_privado: 0,
             CANT_PEDIDA_privado: 0,
             CANT_TRANSITO_privado: 0,
+            CONTRATADA: 4.8,
+            PENDIENTE: 0,
+            ORDENADO: 0,
         },
         {
             LABORATORIO: 'Naprod',
@@ -47,6 +50,9 @@ export class SmartTableData {
             CANT_DISPONIBLE_privado: 77,
             CANT_PEDIDA_privado: 0,
             CANT_TRANSITO_privado: 0,
+            CONTRATADA: 72,
+            PENDIENTE: 0,
+            ORDENADO: 4,
         },
         {
             LABORATORIO: 'Naprod',
@@ -68,6 +74,9 @@ export class SmartTableData {
             CANT_DISPONIBLE_privado: 0,
             CANT_PEDIDA_privado: 0,
             CANT_TRANSITO_privado: 0,
+            CONTRATADA: 126,
+            PENDIENTE: 0,
+            ORDENADO: 21,
         },
     ];
 
