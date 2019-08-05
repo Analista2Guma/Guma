@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SmartTableData } from '../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
+import { UserService } from '../../@core/data/user.service';
 
 @Component({
   selector: 'ngx-cruz-azul',
@@ -88,7 +89,8 @@ export class CruzAzulComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private service: SmartTableData,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
     const data = this.service.getData();
     // console.log(data);
     this.data = data;
@@ -162,6 +164,15 @@ export class CruzAzulComponent implements OnInit {
       product['Equivalente?'] = null;
       product['ee'] = null; // existencia equivalente
     });
+  }
+
+  report(event, eventName: string): void {
+    console.log(eventName);
+    console.log(event);
+    console.log(event.data);
+    this.userService.setDisplayObject(event.data);
+    this.userService.setDisplayObjectType('CA');
+    this.router.navigate(['pages/form']);
   }
 
 }

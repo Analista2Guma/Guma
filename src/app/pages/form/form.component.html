@@ -1,3 +1,21 @@
-<p>
-  form works!
-</p>
+<nb-card>
+  <nb-card-header>
+    <h4 style="text-align: center; margin-top: 1%">Reporte: {{displayObject.ARTICULO}}</h4>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label>Descripcion</label>
+          <input disabled [(ngModel)]="displayObject.DESCRIPCION" name="descripcion" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label>Clase_ABC</label>
+          <input disabled [(ngModel)]="displayObject.CLASE_ABC" name="CLASE_ABC" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

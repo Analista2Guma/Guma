@@ -1,3 +1,4 @@
 <p>
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  <ng2-smart-table [settings]="settings" [source]="data"
+  (custom)="report($event, 'report')"></ng2-smart-table>
 </p>

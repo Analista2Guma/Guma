@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CruzAzulComponent } from './cruz-azul/cruz-azul.component';
 import { PrivadoComponent } from './privado/privado.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [{
     {
       path: 'privado',
       component: PrivadoComponent,
+    },
+    {
+      path: 'form',
+      component: FormComponent,
     },
     {
       path: '',
