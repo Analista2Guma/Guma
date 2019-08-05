@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SmartTableData } from '../../@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-cruz-azul',
@@ -86,10 +87,24 @@ export class CruzAzulComponent implements OnInit {
   data: Object[];
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
+  constructor(private service: SmartTableData,
+              private router: Router) {
     const data = this.service.getData();
     // console.log(data);
-    data.forEach(product => {
+    this.data = data;
+    this.source.load(data);
+  }
+
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  ngOnInit() {
+    this.data.forEach(product => {
       product['pcm'] = product['CONTRATADA'] / 12; // promedio contratado mensual
       product['pvm'] = product['ORDENADO'] / this.mesDeContrato; // promedio vendido mensual
       product['vc'] = Math.max(product['CONTRATADA'], product['ORDENADO']); // valor critico
@@ -147,19 +162,6 @@ export class CruzAzulComponent implements OnInit {
       product['Equivalente?'] = null;
       product['ee'] = null; // existencia equivalente
     });
-    this.data = data;
-    this.source.load(data);
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
-
-  ngOnInit() {
   }
 
 }
