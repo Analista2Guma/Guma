@@ -136,8 +136,8 @@ export class CruzAzulComponent implements OnInit {
 
       // REQUISITO: Informacion de Ventas bodega 2
       product['vpm'] = null; // Venta privada mensual (meses con disp.)
-      product['md02'] = (product['CANT_DISPONIBLE_privado'] + 
-                        product['CANT_PEDIDA_privado'] + 
+      product['md02'] = (product['CANT_DISPONIBLE_privado'] +
+                        product['CANT_PEDIDA_privado'] +
                         product['CANT_TRANSITO_privado']) / product['vpm'];
 
       // cantidad (en packs) movible bodega 2->6
