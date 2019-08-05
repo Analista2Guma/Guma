@@ -18,8 +18,8 @@ export class CruzAzulComponent implements OnInit {
       position: 'right',
       custom: [
         {
-          name: 'view',
-          title: 'View',
+          name: 'report',
+          title: 'Reporte',
         },
       ],
     },
@@ -99,30 +99,53 @@ export class CruzAzulComponent implements OnInit {
                         product['CANT_TRANSITO']) / product['vc']; // Meses disponibles bodega 6
       product['md02'] = (product['CANT_DISPONIBLE_privado'] + product['CANT_PEDIDA_privado'] +
                         product['CANT_TRANSITO_privado']) / product['vc']; // Meses disponibles bodega 2
+
+      // Dependientes de CATEGORIA (CLASE_ABC)
       product['pro'] = null; // punto de reorden
+      product['me02'] = null; // minima existencia permitida bodega 2 (en meses)
       switch (product['CLASE_ABC']) {
         case 'A+':
           product['pro'] = 10;
+          product['me02'] = 3;
           break;
         case 'A':
           product['pro'] = 10;
+          product['me02'] = 3;
           break;
         case 'B':
           product['pro'] = 9;
+          product['me02'] = 2;
           break;
         case 'C':
           product['pro'] = 8;
+          product['me02'] = 1;
           break;
         default:
           product['pro'] = 'N/D';
+          product['me02'] = 0;
           break;
       }
+
       if (product['md06'] <= product['pro']) {
         product['pedir?'] = 'PEDIR';
       } else {
         product['pedir?'] = '';
       }
-      // console.log(product);
+
+      product['cantPedir(packs)'] = product['pro'] * product['vc'];
+
+      // REQUISITO: Informacion de Ventas bodega 2
+      product['vpm'] = null; // Venta privada mensual (meses con disp.)
+      product['md02'] = (product['CANT_DISPONIBLE_privado'] + 
+                        product['CANT_PEDIDA_privado'] + 
+                        product['CANT_TRANSITO_privado']) / product['vpm'];
+
+      // cantidad (en packs) movible bodega 2->6
+      product['cm02'] = Math.max(0, product['vpm'] * (product['md02'] - product['me02']));
+
+      // REQUISITO: Informacion de equivalentes
+      product['Equivalente?'] = null;
+      product['ee'] = null; // existencia equivalente
     });
     this.data = data;
     this.source.load(data);
