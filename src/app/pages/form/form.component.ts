@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../@core/data/user.service'
+import { UserService } from '../../@core/data/user.service';
 
 @Component({
   selector: 'ngx-form',
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.userService.getDisplayObject()
     .subscribe((product: any) => this.displayObject = product);
-    console.log("Alvarita\n");
-    console.log(this.displayObject);
+    // console.log("Alvarita\n");
+    // console.log(this.displayObject);
   }
 }

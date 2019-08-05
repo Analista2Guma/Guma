@@ -167,9 +167,9 @@ export class CruzAzulComponent implements OnInit {
   }
 
   report(event, eventName: string): void {
-    console.log(eventName);
-    console.log(event);
-    console.log(event.data);
+    // console.log(eventName);
+    // console.log(event);
+    // console.log(event.data);
     this.userService.setDisplayObject(event.data);
     this.userService.setDisplayObjectType('CA');
     this.router.navigate(['pages/form']);
