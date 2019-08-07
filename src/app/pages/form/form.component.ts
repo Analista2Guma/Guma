@@ -23,6 +23,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.userService.getDisplayObject()
     .subscribe((product: any) => this.displayObject = product);
+    this.userService.getDisplayObjectType()
+    .subscribe((objType: any) => this.displayObjectType = objType);
     // console.log("Alvarita\n");
     // console.log(this.displayObject);
   }

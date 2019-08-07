@@ -31,9 +31,6 @@ export class CruzAzulComponent implements OnInit {
       ARTICULO: {
         title: '#Articulo',
       },
-      LABORATORIO: {
-        title: 'Laboratorio',
-      },
       DESCRIPCION: {
         title: 'Descripcion',
       },
@@ -41,7 +38,7 @@ export class CruzAzulComponent implements OnInit {
         title: 'Categoria',
       },
       ORDEN_MINIMA: {
-        title: 'Minima Orden',
+        title: 'Orden Minima',
       },
       FACTOR_EMPAQUE: {
         title: 'Empaque (unidades)',
@@ -144,16 +141,16 @@ export class CruzAzulComponent implements OnInit {
       }
 
       if (product['md06'] <= product['pro']) {
-        product['pedir?'] = 'PEDIR';
+        product['pedir'] = 'PEDIR';
       } else {
-        product['pedir?'] = '';
+        product['pedir'] = '';
       }
 
-      product['cantPedir(packs)'] = product['pro'] * product['vc'];
+      product['cantPedir'] = product['pro'] * product['vc'];
 
       // REQUISITO: Informacion de Ventas bodega 2
       product['vpm'] = null; // Venta privada mensual (meses con disp.)
-      product['md02'] = (product['CANT_DISPONIBLE_privado'] +
+      product['md02_priv'] = (product['CANT_DISPONIBLE_privado'] +
                         product['CANT_PEDIDA_privado'] +
                         product['CANT_TRANSITO_privado']) / product['vpm'];
 
@@ -161,7 +158,7 @@ export class CruzAzulComponent implements OnInit {
       product['cm02'] = Math.max(0, product['vpm'] * (product['md02'] - product['me02']));
 
       // REQUISITO: Informacion de equivalentes
-      product['Equivalente?'] = null;
+      product['Equivalente'] = null;
       product['ee'] = null; // existencia equivalente
     });
   }
@@ -171,7 +168,7 @@ export class CruzAzulComponent implements OnInit {
     // console.log(event);
     // console.log(event.data);
     this.userService.setDisplayObject(event.data);
-    this.userService.setDisplayObjectType('CA');
+    this.userService.setDisplayObjectType('cruz-azul');
     this.router.navigate(['pages/form']);
   }
 
