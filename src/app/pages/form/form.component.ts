@@ -25,7 +25,6 @@ export class FormComponent implements OnInit {
     .subscribe((product: any) => this.displayObject = product);
     this.userService.getDisplayObjectType()
     .subscribe((objType: any) => this.displayObjectType = objType);
-    // console.log("Alvarita\n");
-    // console.log(this.displayObject);
+    if( !this.displayObject ) this.router.navigate(['pages/']);
   }
 }

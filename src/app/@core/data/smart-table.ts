@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
@@ -79,6 +80,14 @@ export class SmartTableData {
             ORDENADO: 21,
         },
     ];
+
+    constructor(private http: HttpClient) {
+        console.log("Jamesito2");
+        this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA')
+        .subscribe(data => {
+            console.log(data);
+        });
+    }
 
     getData() {
         return this.CAData;
