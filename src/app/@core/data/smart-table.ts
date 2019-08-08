@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root',
   })
 export class SmartTableData {
+    data: any;
 
     CAData: Object[] = [
         {
@@ -82,10 +83,11 @@ export class SmartTableData {
     ];
 
     constructor(private http: HttpClient) {
-        console.log("Jamesito2");
+        // console.log("Jamesito2");
         this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA')
         .subscribe(data => {
-            console.log(data);
+            // console.log(data);
+            this.data = data;
         });
     }
 
