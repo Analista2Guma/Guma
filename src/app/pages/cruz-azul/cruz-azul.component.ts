@@ -104,24 +104,24 @@ export class CruzAzulComponent implements OnInit {
             product['me02'] = 0;
             break;
         }
-  
+
         if (product['md06'] <= product['pro']) {
           product['pedir'] = 'PEDIR';
         } else {
           product['pedir'] = '';
         }
-  
+
         product['cantPedir'] = product['pro'] * product['vc'];
-  
+
         // REQUISITO: Informacion de Ventas bodega 2
         product['vpm'] = null; // Venta privada mensual (meses con disp.)
         product['md02_priv'] = (product['CANT_DISPONIBLE_privado'] +
                           product['CANT_PEDIDA_privado'] +
                           product['CANT_TRANSITO_privado']) / product['vpm'];
-  
+
         // cantidad (en packs) movible bodega 2->6
         product['cm02'] = Math.max(0, product['vpm'] * (product['md02'] - product['me02']));
-  
+
         // REQUISITO: Informacion de equivalentes
         product['Equivalente'] = null;
         product['ee'] = null; // existencia equivalente
