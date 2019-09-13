@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
   })
 export class SmartTableData {
-    data: any;
-
     CAData: Object[] = [
         {
             LABORATORIO: 'Naprod',
@@ -82,17 +81,10 @@ export class SmartTableData {
         },
     ];
 
-    constructor(private http: HttpClient) {
-        // console.log("Jamesito2");
-        this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA')
-        .subscribe(data => {
-            // console.log(data);
-            this.data = data;
-        });
-    }
+    constructor(private http: HttpClient) {}
 
-    getData() {
-        return this.CAData;
+    getData(): Observable<any> {
+        return this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA');
     }
 
 }
