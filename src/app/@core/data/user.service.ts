@@ -9,6 +9,8 @@ export class UserService {
   user: Object;
   displayObject: Object;
   displayObjectType: String;
+  CAData: Object[];
+  privData: Object[];
 
   constructor() {
     // this.userArray = Object.values(this.users);
@@ -38,6 +40,23 @@ export class UserService {
 
   getDisplayObjectType(): Observable<any> {
     return observableOf(this.displayObjectType);
+  }
+
+  setCAData( obj: Object[] ) {
+    // console.log("CAData being set");
+    this.CAData = obj;
+  }
+
+  getCAData() {
+    return observableOf(this.CAData);
+  }
+
+  setPrivData( obj: Object[] ) {
+    this.privData = obj;
+  }
+
+  getPrivData() {
+    return observableOf(this.privData);
   }
 
   // Component Functionality

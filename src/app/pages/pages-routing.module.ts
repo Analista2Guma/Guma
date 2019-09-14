@@ -29,7 +29,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'pages',
       pathMatch: 'full',
     },
   ],

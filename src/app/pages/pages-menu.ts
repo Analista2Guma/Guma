@@ -20,10 +20,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'FEATURES',
-    group: true,
-  },
-  {
     title: 'Auth',
     icon: 'nb-locked',
     children: [
