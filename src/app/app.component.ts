@@ -18,24 +18,22 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   caData: Object[];
-  source: LocalDataSource = new LocalDataSource();
+  privData: Object[];
+  source;
   mesDeContrato = 10;
 
   constructor(private analytics: AnalyticsService,
               private userService: UserService,
               private table: SmartTableData,
               private router: Router) {
+
     this.table.getCAData()
+    // CA: retrieving Data
     .subscribe(res => {
-      const testingArr = res.data.filter((val) => {
-        return (this.table.COPData[val['ARTICULO']] != null);
-      });
-      this.caData = testingArr;
-      this.source.load(this.caData);
+      this.caData = res.data;
+
+      // CA: New columns
       this.caData.forEach(product => {
-        // console.log("\n");
-        // console.log(product['ARTICULO']);
-        // console.log(product['DESCRIPCION']);
         product['pcm'] = product['CONTRATADA'] / 12; // promedio contratado mensual
         product['pvm'] = product['ORDENADO'] / this.mesDeContrato; // promedio vendido mensual
         product['vc'] = Math.max(product['CONTRATADA'], product['ORDENADO']); // valor critico
@@ -93,9 +91,20 @@ export class AppComponent implements OnInit {
         product['Equivalente'] = null;
         product['ee'] = null; // existencia equivalente
       });
+      this.source = new LocalDataSource(this.caData);
       this.userService.setCAData(this.caData);
+    });
+
+    // priv: retrieving Data
+    this.table.getPrivData()
+    .subscribe(res => {
+      this.privData = res.data;
+
+      this.userService.setPrivData(this.privData);
       this.router.navigate(['/pages/dashboard']);
     });
+
+
   }
 
   ngOnInit() {

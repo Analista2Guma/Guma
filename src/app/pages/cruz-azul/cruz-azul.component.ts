@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { SmartTableData } from '../../@core/data/smart-table';
 import { Router } from '@angular/router';
 import { UserService } from '../../@core/data/user.service';
 
@@ -27,6 +28,7 @@ export class CruzAzulComponent implements OnInit {
     },
     mode: 'external',
     hideSubHeader: true,
+    noDataMessage: 'Cargando datos',
     columns: {
       ARTICULO: {
         title: '#Articulo',
@@ -47,7 +49,8 @@ export class CruzAzulComponent implements OnInit {
   };
 
 
-  constructor(private router: Router,
+  constructor(private service: SmartTableData,
+              private router: Router,
               private userService: UserService) {}
 
   onDeleteConfirm(event): void {
@@ -60,7 +63,6 @@ export class CruzAzulComponent implements OnInit {
 
   ngOnInit() {
     this.source = new LocalDataSource(this.userService.CAData);
-    // console.log(this.userService.CAData);
   }
 
   report(event, eventName: string): void {

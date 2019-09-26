@@ -11,9 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DashboardComponent {
 
   privData = this.userService.privData;
+  caData: Object[];
   summaryData: Object[];
   source = new LocalDataSource();
-
 
   settings = {
     actions: {
@@ -53,10 +53,16 @@ export class DashboardComponent {
   constructor(private userService: UserService,
               private router: Router,
               private route: ActivatedRoute) {
-    if (this.userService.CAData) {
-      this.source.load(this.userService.CAData);
-    } else {
-      this.router.navigate(['./'], {relativeTo: this.route.parent});
-    }
+
+    this.userService.getCAData()
+    .subscribe(caRes => {
+      this.caData = caRes;
+      this.source.load(this.caData);
+    });
+
+    this.userService.getPrivData()
+    .subscribe(privRes => {
+      this.privData = privRes;
+    });
   }
 }

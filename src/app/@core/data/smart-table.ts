@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
   })
 export class SmartTableData {
-    data: any;
-
     CAData: Object[] = [
         {
             LABORATORIO: 'Naprod',
@@ -561,7 +559,13 @@ export class SmartTableData {
       ORDENADO: '301,200',
     },
     {
-      ARTICULO: '18810032  18810031',
+      ARTICULO: 18810031,
+      CONTRATADA: '3,300,670',
+      PENDIENTE: '2,293,470',
+      ORDENADO: '2,293,470',
+    },
+    {
+      ARTICULO: 18810032,
       CONTRATADA: '3,300,670',
       PENDIENTE: '2,293,470',
       ORDENADO: '2,293,470',
@@ -615,7 +619,13 @@ export class SmartTableData {
       ORDENADO: '-',
     },
     {
-      ARTICULO: '10520031   UVA        10520012 LIMON',
+      ARTICULO: 10520031,
+      CONTRATADA: '479,798',
+      PENDIENTE: '',
+      ORDENADO: '-',
+    },
+    {
+      ARTICULO: 10520012,
       CONTRATADA: '479,798',
       PENDIENTE: '',
       ORDENADO: '-',

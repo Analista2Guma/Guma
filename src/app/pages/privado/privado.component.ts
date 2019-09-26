@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalDataSource } from 'ng2-smart-table';
+import { SmartTableData } from '../../@core/data/smart-table';
+import { Router } from '@angular/router';
+import { UserService } from '../../@core/data/user.service';
 
 @Component({
   selector: 'ngx-privado',
@@ -7,50 +11,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivadoComponent implements OnInit {
 
+  source;
+
   settings = {
+    actions: {
+      edit: false,
+      delete: false,
+      position: 'right',
+      custom: [
+        {
+          name: 'report',
+          title: 'Reporte',
+        },
+      ],
+    },
+    mode: 'external',
+    hideSubHeader: true,
+    noDataMessage: 'Cargando datos',
     columns: {
-      id: {
-        title: 'ID',
+      ARTICULO: {
+        title: '#Articulo',
       },
-      name: {
-        title: 'Full Name',
+      DESCRIPCION: {
+        title: 'Descripcion',
       },
-      username: {
-        title: 'User Name',
+      CLASE_ABC: {
+        title: 'Categoria',
       },
-      email: {
-        title: 'Email',
+      ORDEN_MINIMA: {
+        title: 'Orden Minima',
+      },
+      FACTOR_EMPAQUE: {
+        title: 'Empaque (unidades)',
       },
     },
   };
 
-  data = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-    },
+  data: Object[];
 
-    // ... list of items+
-
-    {
-      id: 11,
-      name: 'Nicholas DuBuque',
-      username: 'Nicholas.Stanton',
-      email: 'Rey.Padberg@rosamond.biz',
-    },
-  ];
-
-  constructor() { }
+  constructor(private router: Router,
+              private userService: UserService,
+              private table: SmartTableData) {}
 
   ngOnInit() {
+    console.log(this.userService.privData);
+    this.source = new LocalDataSource(this.userService.privData);
+  }
+
+  report(event, eventName: string): void {
+    this.userService.setDisplayObject(event.data);
+    this.userService.setDisplayObjectType('priv');
+    this.router.navigate(['pages/form']);
   }
 
 }
