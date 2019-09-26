@@ -50,17 +50,17 @@ export class PrivadoComponent implements OnInit {
   data: Object[];
 
   constructor(private router: Router,
-              private userService: UserService,
-              private table: SmartTableData) {}
+              private userService: UserService) {}
+              // private table: SmartTableData) {}
 
   ngOnInit() {
-    console.log(this.userService.privData);
+    // console.log(this.userService.privData);
     this.source = new LocalDataSource(this.userService.privData);
   }
 
   report(event, eventName: string): void {
     this.userService.setDisplayObject(event.data);
-    this.userService.setDisplayObjectType('priv');
+    this.userService.setDisplayObjectType('privado');
     this.router.navigate(['pages/form']);
   }
 

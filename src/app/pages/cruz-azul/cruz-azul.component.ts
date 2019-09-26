@@ -49,8 +49,7 @@ export class CruzAzulComponent implements OnInit {
   };
 
 
-  constructor(private service: SmartTableData,
-              private router: Router,
+  constructor(private router: Router,
               private userService: UserService) {}
 
   onDeleteConfirm(event): void {

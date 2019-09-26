@@ -113,7 +113,7 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Categoría (privado)</label>
+              <label>Categoría (privadoado)</label>
               <input disabled [(ngModel)]="displayObject.CLASE_ABC_privado" name="CLASE_ABC_privado" type="text" class="form-control">
             </div>
           </div>
@@ -127,7 +127,7 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Disponible (privado)</label>
+              <label>Disponible (privadoado)</label>
               <input disabled [(ngModel)]="displayObject.CANT_DISPONIBLE_privado" name="CANT_DISPONIBLE_privado" type="text" class="form-control">
             </div>
           </div>
@@ -141,21 +141,21 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Pedida (privado)</label>
-              <input disabled [(ngModel)]="displayObject.CANT_PEDIDA_privado" name="CANT_PEDIDA_privado" type="text" class="form-control">
+              <label>Pedida (privadoado)</label>
+              <input disabled [(ngModel)]="displayObject.CANT_PEDIDA_privadoado" name="CANT_PEDIDA_privadoado" type="text" class="form-control">
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label>Meses Disponibles Bod2 Privado</label>
-              <input disabled [(ngModel)]="displayObject.md02_priv" name="md02_priv" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject.md02_privado" name="md02_privado" type="text" class="form-control">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>En Tránsito (privado)</label>
+              <label>En Tránsito (privadoado)</label>
               <input disabled [(ngModel)]="displayObject.CANT_TRANSITO_privado" name="CANT_TRANSITO_privado" type="text" class="form-control">
             </div>
           </div>
@@ -264,7 +264,7 @@
 </nb-card>
 
 
-<nb-card *ngIf="displayObjectType=='priv'">
+<nb-card *ngIf="displayObjectType=='privado'">
   <nb-card-header>
     <h4 style="text-align: center; margin-top: 1%">Reporte: {{displayObject.ARTICULO}}</h4>
   </nb-card-header>
@@ -310,7 +310,7 @@
   </nb-card-body>
 </nb-card>
 
-<div class="row" *ngIf="displayObjectType=='priv'">
+<div class="row" *ngIf="displayObjectType=='privado'">
   <div class="col-md-3">
     <nb-card>
 
@@ -422,3 +422,8 @@
     </nb-card>
   </div>
 </div>
+
+<nb-card *ngIf="displayObjectType=='privado'">
+    <button class="btn btn-hero-info btn-demo" (click)="close()">Cerrar</button>
+</nb-card>
+

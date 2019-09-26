@@ -50,9 +50,9 @@ export class DashboardComponent {
     },
   };
 
-  constructor(private userService: UserService,
-              private router: Router,
-              private route: ActivatedRoute) {
+  constructor(private userService: UserService) { //,
+              // private router: Router,
+              // private route: ActivatedRoute) {
 
     this.userService.getCAData()
     .subscribe(caRes => {
