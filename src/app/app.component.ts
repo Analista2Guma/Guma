@@ -33,7 +33,9 @@ export class AppComponent implements OnInit {
       this.caData = testingArr;
       this.source.load(this.caData);
       this.caData.forEach(product => {
-        // console.log(product['ARTICULO'])
+        console.log("\n");
+        console.log(product['ARTICULO']);
+        console.log(product['DESCRIPCION']);
         product['pcm'] = product['CONTRATADA'] / 12; // promedio contratado mensual
         product['pvm'] = product['ORDENADO'] / this.mesDeContrato; // promedio vendido mensual
         product['vc'] = Math.max(product['CONTRATADA'], product['ORDENADO']); // valor critico
