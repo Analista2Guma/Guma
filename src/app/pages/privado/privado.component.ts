@@ -55,7 +55,7 @@ export class PrivadoComponent implements OnInit {
     .subscribe(res => {
       this.data = res.data;
       this.source.load(this.data);
-    })
+    });
   }
 
   ngOnInit() {
