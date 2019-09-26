@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-// import { SmartTableData } from '../../@core/data/smart-table';
+import { SmartTableData } from '../../@core/data/smart-table';
 import { Router } from '@angular/router';
 import { UserService } from '../../@core/data/user.service';
 
@@ -49,7 +49,14 @@ export class PrivadoComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private router: Router,
-              private userService: UserService) { }
+              private userService: UserService,
+              private table: SmartTableData) {
+    this.table.getData()
+    .subscribe(res => {
+      this.data = res.data;
+      this.source.load(this.data);
+    })
+  }
 
   ngOnInit() {
   }

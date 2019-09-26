@@ -65,7 +65,7 @@ export class CruzAzulComponent implements OnInit {
   ngOnInit() {
     this.service.getData()
     .subscribe(res => {
-      // console.log(res.data);
+      // console.log(res.data[1]);
       this.data = res.data;
       this.source.load(this.data);
       this.data.forEach(product => {
