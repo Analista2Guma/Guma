@@ -1,3 +1,22 @@
-<p>
-  <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
-</p>
+
+  <ng2-smart-table [settings]="settings" [source]="source"
+  (userRowSelect)="info($event)"></ng2-smart-table>
+
+
+
+
+
+
+
+<div class="col-lg-6">
+  <nb-card size="small">
+    <nb-card-header>Component Popovers</nb-card-header>
+    <nb-card-body>
+      Same way popover can render any angular compnoent.
+      <button nbButton status="warning" [nbPopover]="tabsComponent">With tabs</button>
+      <button nbButton status="warning" [nbPopover]="formComponent">With form</button>
+      <button nbButton status="warning" [nbPopover]="cardComponent">With card</button>
+    </nb-card-body>
+  </nb-card>
+</div>
+
