@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { UserService } from '../../@core/data/user.service';
-import { NgxPopoverFormComponent } from '../miscellaneous/popups/popover-examples.component';
 
 
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
   privData = this.userService.privData;
   caData: Object[];
@@ -16,7 +15,6 @@ export class DashboardComponent {
   source = new LocalDataSource();
   popupData: Object = {};
   popup: Boolean = false;
-  formComponent = NgxPopoverFormComponent;
 
   settings = {
     actions: false,
@@ -51,13 +49,19 @@ export class DashboardComponent {
     },
   };
 
-  constructor(private userService: UserService) { // ,
+  constructor(private userService: UserService) {}// ,
               // private router: Router,
-              // private route: ActivatedRoute) {
+              // private route: ActivatedRoute) {}
 
+  info(event) {
+    this.popup = true;
+    this.userService.popupData = event.data;
+    this.popupData = event.data;
+  }
+
+  ngOnInit() {
     this.userService.getCAData()
     .subscribe(caRes => {
-      // console.log(caRes);
       this.caData = caRes;
       this.source.load(this.caData);
     });
@@ -66,11 +70,5 @@ export class DashboardComponent {
     .subscribe(privRes => {
       this.privData = privRes;
     });
-  }
-
-  info(event) {
-    this.popup = true;
-    this.userService.popupData = event.data;
-    this.popupData = event.data;
   }
 }

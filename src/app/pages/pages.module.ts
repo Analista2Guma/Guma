@@ -6,15 +6,27 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 
+import { NbCardModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+
+import { CruzAzulModule } from './cruz-azul/cruz-azul.module';
+import { PrivadoModule } from './privado/privado.module';
+import { FormComponent } from './form/form.component';
+
 @NgModule({
   imports: [
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
     DashboardModule,
+    CruzAzulModule,
+    PrivadoModule,
+    NbCardModule,
+    FormsModule,
   ],
   declarations: [
     PagesComponent,
+    FormComponent,
   ],
 })
 export class PagesModule {
