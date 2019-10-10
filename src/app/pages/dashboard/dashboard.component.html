@@ -1,22 +1,120 @@
+<ng2-smart-table [settings]="settings" [source]="source"
+  (userRowSelect)="info($event)">
+</ng2-smart-table>
 
-  <ng2-smart-table [settings]="settings" [source]="source"
-  (userRowSelect)="info($event)"></ng2-smart-table>
-
-
-
-
-
-
-
-<div class="col-lg-6">
-  <nb-card size="small">
-    <nb-card-header>Component Popovers</nb-card-header>
+<div *ngIf="popup">
+  <nb-card>
+    <nb-card-header>Total</nb-card-header>
     <nb-card-body>
-      Same way popover can render any angular compnoent.
-      <button nbButton status="warning" [nbPopover]="tabsComponent">With tabs</button>
-      <button nbButton status="warning" [nbPopover]="formComponent">With form</button>
-      <button nbButton status="warning" [nbPopover]="cardComponent">With card</button>
+      <div class="row">
+        <div class="col">
+          <label>Cantidad Disponible (Packs)</label>
+          <input disabled [(ngModel)]="popupData.disponible_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad Pedida (Packs)</label>
+          <input disabled [(ngModel)]="popupData.pedida_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad en Transito (Packs)</label>
+          <input disabled [(ngModel)]="popupData.transito_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad Reservada (Packs)</label>
+          <input disabled [(ngModel)]="popupData.reservada_total" class="form-control">
+        </div>
+      </div>
     </nb-card-body>
   </nb-card>
+
+  <div class="row">
+    <div class="col">
+      <nb-card>
+        <nb-card-header>Privado</nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col">
+              <label>Cantidad Disponible (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_DISPONIBLE_02" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad Pedida (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_PEDIDA_02" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad en Transito (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_TRANSITO_02" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad Reservada (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_RESERVADA_02" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Meses Disponibles (Prom.)</label>
+              <input disabled [(ngModel)]="popupData.md02" class="form-control">
+            </div>
+            <div class="col">
+              <label>Promedio Venta Mensual</label>
+              <input disabled [(ngModel)]="popupData.pvm" class="form-control">
+            </div>
+            <div class="col">
+              <label>Minimos Meses Disponibles</label>
+              <input disabled [(ngModel)]="popupData.mmd" class="form-control">
+            </div>
+            <div class="col">
+              <label>Maxima Venta Mensual</label>
+              <input disabled [(ngModel)]="popupData.mvm" class="form-control">
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col">
+      <nb-card>
+        <nb-card-header>Cruz Azul</nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col">
+              <label>Cantidad Disponible (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_DISPONIBLE_06" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad Pedida (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_PEDIDA_06" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad en Transito (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_TRANSITO_06" class="form-control">
+            </div>
+            <div class="col">
+              <label>Cantidad Reservada (Packs)</label>
+              <input disabled [(ngModel)]="popupData.CANT_RESERVADA_06" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Contratada</label>
+              <input disabled [(ngModel)]="popupData.CONTRATADA" class="form-control">
+            </div>
+            <div class="col">
+              <label>Pendiente</label>
+              <input disabled [(ngModel)]="popupData.PENDIENTE" class="form-control">
+            </div>
+            <div class="col">
+              <label>Ordenada</label>
+              <input disabled [(ngModel)]="popupData.ORDENADA" class="form-control">
+            </div>
+            <div class="col">
+              <label>Meses Disponibles</label>
+              <input disabled [(ngModel)]="popupData.md06" class="form-control">
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
 </div>
 

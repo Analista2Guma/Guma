@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  NgxPopoverCardComponent, NgxPopoverFormComponent,
-  NgxPopoverTabsComponent,
-} from './popover-examples.component';
 
 @Component({
   selector: 'ngx-popups',
@@ -15,9 +11,5 @@ export class PopupsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  tabsComponent = NgxPopoverTabsComponent;
-  cardComponent = NgxPopoverCardComponent;
-  formComponent = NgxPopoverFormComponent;
 
 }

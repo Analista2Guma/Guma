@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { UserService } from '../../@core/data/user.service';
-import {
-  NgxPopoverCardComponent, NgxPopoverFormComponent,
-  NgxPopoverTabsComponent,
-} from '../miscellaneous/popups/popover-examples.component';
+import { NgxPopoverFormComponent } from '../miscellaneous/popups/popover-examples.component';
 
 
 @Component({
@@ -18,8 +15,7 @@ export class DashboardComponent {
   summaryData: Object[];
   source = new LocalDataSource();
   popupData: Object = {};
-  tabsComponent = NgxPopoverTabsComponent;
-  cardComponent = NgxPopoverCardComponent;
+  popup: Boolean = false;
   formComponent = NgxPopoverFormComponent;
 
   settings = {
@@ -72,6 +68,8 @@ export class DashboardComponent {
   }
 
   info(event) {
+    this.popup = true;
+    this.userService.popupData = event.data;
     this.popupData = event.data;
   }
 }

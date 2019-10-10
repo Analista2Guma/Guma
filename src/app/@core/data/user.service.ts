@@ -1,6 +1,6 @@
 
 import { of as observableOf,  Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, OnChanges } from '@angular/core';
 
 
 @Injectable()
@@ -11,6 +11,7 @@ export class UserService {
   displayObjectType: String;
   CAData: Object[];
   privData: Object[];
+  popupData: Object;
 
   constructor() {
     // this.userArray = Object.values(this.users);
@@ -57,6 +58,10 @@ export class UserService {
 
   getPrivData() {
     return observableOf(this.privData);
+  }
+
+  setPopupData( obj: Object ) {
+    this.popupData = obj;
   }
 
   // Component Functionality
