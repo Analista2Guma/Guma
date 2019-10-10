@@ -57,7 +57,7 @@ export class DashboardComponent {
 
     this.userService.getCAData()
     .subscribe(caRes => {
-      console.log(caRes);
+      // console.log(caRes);
       this.caData = caRes;
       this.source.load(this.caData);
     });

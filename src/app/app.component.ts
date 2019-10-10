@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
     this.table.getCAData()
     // CA: retrieving Data
     .subscribe(res => {
-      console.log(res);
       this.caData = res.data;
 
       // CA: New columns
