@@ -76,7 +76,8 @@ import { UserService } from '../../../@core/data/user.service';
           <div class="col">
             <div class="form-group">
               <label>Disponible (privado)</label>
-              <input disabled [(ngModel)]="popupData.CANT_DISPONIBLE_privado" name="CANT_DISPONIBLE_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="popupData.CANT_DISPONIBLE_privado" 
+               name="CANT_DISPONIBLE_privado" type="text" class="form-control">
             </div>
           </div>
           <div class="col">

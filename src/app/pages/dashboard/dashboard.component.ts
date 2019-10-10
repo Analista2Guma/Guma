@@ -22,7 +22,7 @@ export class DashboardComponent {
     actions: false,
     mode: 'external',
     hideSubHeader: true,
-    noDataMessage: "Cargando Datos",
+    noDataMessage: 'Cargando Datos',
     columns: {
       ARTICULO: {
         title: '#Articulo',

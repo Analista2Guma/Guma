@@ -1,6 +1,6 @@
 
 import { of as observableOf,  Observable } from 'rxjs';
-import { Injectable, OnChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 
 @Injectable()
