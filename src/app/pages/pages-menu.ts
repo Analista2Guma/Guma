@@ -3,25 +3,17 @@ import { NbMenuItem } from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Dashboard',
-    icon: 'nb-home',
+    icon: 'home-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'Cruz Azul',
-    icon: 'nb-list',
-    link: '/pages/cruz-azul',
-    home: true,
-  },
-  {
-    title: 'Mercado Privado',
-    icon: 'nb-list',
-    link: '/pages/privado',
-    home: true,
+    title: 'FEATURES',
+    group: true,
   },
   {
     title: 'Auth',
-    icon: 'nb-locked',
+    icon: 'lock-outline',
     children: [
       {
         title: 'Login',
