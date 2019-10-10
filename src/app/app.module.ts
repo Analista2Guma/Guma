@@ -11,6 +11,8 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from './@core/data/user.service';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -28,7 +30,7 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
+    NgbModule,
     ThemeModule.forRoot(),
 
     NbSidebarModule.forRoot(),
@@ -43,6 +45,9 @@ import {
     CoreModule.forRoot(),
   ],
   bootstrap: [AppComponent],
+  providers: [
+    UserService,
+  ],
 })
 export class AppModule {
 }
