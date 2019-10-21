@@ -26,7 +26,6 @@ export class CruzAzulComponent implements OnInit {
       ],
     },
     mode: 'external',
-    hideSubHeader: true,
     noDataMessage: 'Cargando datos',
     columns: {
       ARTICULO: {
@@ -61,6 +60,7 @@ export class CruzAzulComponent implements OnInit {
 
   ngOnInit() {
     this.source = new LocalDataSource(this.userService.CAData);
+    this.settings.noDataMessage = '0 Resultados';
   }
 
   report(event, eventName: string): void {

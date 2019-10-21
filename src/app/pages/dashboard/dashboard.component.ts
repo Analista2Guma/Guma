@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { UserService } from '../../@core/data/user.service';
 
-
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,7 +18,6 @@ export class DashboardComponent implements OnInit {
   settings = {
     actions: false,
     mode: 'external',
-    hideSubHeader: true,
     noDataMessage: 'Cargando Datos',
     columns: {
       ARTICULO: {
@@ -60,10 +58,12 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log(this.userService.CAData);
     this.userService.getCAData()
     .subscribe(caRes => {
       this.caData = caRes;
       this.source.load(this.caData);
+      this.settings.noDataMessage = '0 Resultados';
     });
 
     this.userService.getPrivData()

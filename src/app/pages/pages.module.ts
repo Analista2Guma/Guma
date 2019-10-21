@@ -6,7 +6,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 
-import { NbCardModule } from '@nebular/theme';
+import { NbCardModule, NbSpinnerModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
 import { CruzAzulModule } from './cruz-azul/cruz-azul.module';
@@ -23,6 +23,7 @@ import { FormComponent } from './form/form.component';
     PrivadoModule,
     NbCardModule,
     FormsModule,
+    NbSpinnerModule,
   ],
   declarations: [
     PagesComponent,
