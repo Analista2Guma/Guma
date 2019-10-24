@@ -16,6 +16,7 @@ export class PrivadoComponent implements OnInit {
     actions: {
       edit: false,
       delete: false,
+      add: false,
       position: 'right',
       custom: [
         {

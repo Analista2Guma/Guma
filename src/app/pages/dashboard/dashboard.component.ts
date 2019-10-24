@@ -17,14 +17,13 @@ export class DashboardComponent implements OnInit {
 
   settings = {
     actions: false,
-    mode: 'external',
     noDataMessage: 'Cargando Datos',
     columns: {
-      ARTICULO: {
-        title: '#Articulo',
-      },
       DESCRIPCION: {
         title: 'Descripcion',
+      },
+      ARTICULO: {
+        title: '#Articulo',
       },
       CLASE_ABC: {
         title: 'Categoria',

@@ -17,6 +17,7 @@ export class CruzAzulComponent implements OnInit {
     actions: {
       edit: false,
       delete: false,
+      add: false,
       position: 'right',
       custom: [
         {
