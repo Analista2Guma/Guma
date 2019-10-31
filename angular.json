@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-admin-demo": {
-      "root": "Inventory",
+      "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "architect": {
@@ -12,6 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "preserveSymlinks": true,
+            "rebaseRootRelativeCssUrls": true,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",

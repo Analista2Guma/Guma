@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   caData: Object[];
   privData: Object[];
+  CAContractData: Object[];
   source;
   mesDeContrato = 10;
 

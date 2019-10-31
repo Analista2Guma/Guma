@@ -16,6 +16,7 @@ export class PrivadoComponent implements OnInit {
     actions: {
       edit: false,
       delete: false,
+      add: false,
       position: 'right',
       custom: [
         {
@@ -25,7 +26,6 @@ export class PrivadoComponent implements OnInit {
       ],
     },
     mode: 'external',
-    hideSubHeader: true,
     noDataMessage: 'Cargando datos',
     columns: {
       ARTICULO: {
@@ -55,6 +55,7 @@ export class PrivadoComponent implements OnInit {
   ngOnInit() {
     // console.log(this.userService.privData);
     this.source = new LocalDataSource(this.userService.privData);
+    this.settings.noDataMessage = '0 Resultados';
   }
 
   report(event, eventName: string): void {

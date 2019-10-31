@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { UserService } from '../../@core/data/user.service';
-import { NgxPopoverFormComponent } from '../miscellaneous/popups/popover-examples.component';
-
 
 @Component({
   selector: 'ngx-dashboard',
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
   privData = this.userService.privData;
   caData: Object[];
@@ -16,19 +14,17 @@ export class DashboardComponent {
   source = new LocalDataSource();
   popupData: Object = {};
   popup: Boolean = false;
-  formComponent = NgxPopoverFormComponent;
 
   settings = {
     actions: false,
-    mode: 'external',
-    hideSubHeader: true,
     noDataMessage: 'Cargando Datos',
     columns: {
-      ARTICULO: {
-        title: '#Articulo',
-      },
       DESCRIPCION: {
         title: 'Descripcion',
+        width: '150%',
+      },
+      ARTICULO: {
+        title: '#Articulo',
       },
       CLASE_ABC: {
         title: 'Categoria',
@@ -51,25 +47,28 @@ export class DashboardComponent {
     },
   };
 
-  constructor(private userService: UserService) { // ,
+  constructor(private userService: UserService) {}// ,
               // private router: Router,
-              // private route: ActivatedRoute) {
+              // private route: ActivatedRoute) {}
 
+  info(event) {
+    this.popup = true;
+    this.userService.popupData = event.data;
+    this.popupData = event.data;
+  }
+
+  ngOnInit() {
+    // console.log(this.userService.CAData);
     this.userService.getCAData()
     .subscribe(caRes => {
       this.caData = caRes;
       this.source.load(this.caData);
+      this.settings.noDataMessage = '0 Resultados';
     });
 
     this.userService.getPrivData()
     .subscribe(privRes => {
       this.privData = privRes;
     });
-  }
-
-  info(event) {
-    this.popup = true;
-    this.userService.popupData = event.data;
-    this.popupData = event.data;
   }
 }

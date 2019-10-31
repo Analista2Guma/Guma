@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../@core/data/user.service';
 
+
 @Component({
   selector: 'ngx-form',
   templateUrl: './form.component.html',
