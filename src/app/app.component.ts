@@ -9,6 +9,9 @@ import { UserService } from './@core/data/user.service';
 import { SmartTableData } from './@core/data/smart-table';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
+import { SourceFilesService } from './@core/data/source-files.service';
+import { mergeMapTo } from 'rxjs/operators';
+
 
 
 @Component({
@@ -22,11 +25,13 @@ export class AppComponent implements OnInit {
   CAContractData: Object[];
   source;
   mesDeContrato = 10;
+  mapMergeTest;
 
   constructor(private analytics: AnalyticsService,
               private userService: UserService,
               private table: SmartTableData,
-              private router: Router) {
+              private router: Router,
+              private sourceFiles: SourceFilesService) {
 
     this.table.getCAData()
     // CA: retrieving Data
@@ -105,10 +110,17 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/pages/dashboard']);
     });
 
+  }
 
+  union(obj1: Object, obj2: Object) {
+    7
   }
 
   ngOnInit() {
     this.analytics.trackPageViews();
+    console.log(this.sourceFiles.test1);
+    console.log(this.sourceFiles.test2);
+    this.mapMergeTest = {...this.sourceFiles.test1.get('10805011'), ...this.sourceFiles.test2.get('10805011')};
+    console.log(this.mapMergeTest['ZUTT']);
   }
 }
