@@ -49,7 +49,9 @@ export class CruzAzulComponent implements OnInit {
 
 
   constructor(private router: Router,
-              private userService: UserService) {}
+              private userService: UserService) {
+    this.source = new LocalDataSource(Array.from(this.userService.CAData.values()));
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
@@ -59,10 +61,7 @@ export class CruzAzulComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.source = new LocalDataSource(this.userService.CAData);
-    this.settings.noDataMessage = '0 Resultados';
-  }
+  ngOnInit() {}
 
   report(event, eventName: string): void {
     this.userService.setDisplayObject(event.data);

@@ -1,25 +1,36 @@
 <nb-card *ngIf="displayObjectType=='cruz-azul'">
   <nb-card-header>
-    <h4 style="text-align: center; margin-top: 1%">Reporte: {{displayObject.ARTICULO}}</h4>
+    <h4 style="text-align: center; margin-top: 1%">{{displayObject.DESCRIPCION}}</h4>
   </nb-card-header>
 
   <nb-card-body>
 
     <div class="row">
-
-      <div class="col-md-3">
+      <div class="col">
         <div class="form-group">
-          <label>Laboratorio</label>
-          <input disabled [(ngModel)]="displayObject.LABORATORIO" name="LABORATORIO" type="text" class="form-control">
+          <label>ARTICULO</label>
+          <input disabled [(ngModel)]="displayObject.ARTICULO" name="ARTICULO" type="text" class="form-control">
         </div>
       </div>
-      <div class="col-md-7">
+      <div class="col">
         <div class="form-group">
-          <label>Descripción</label>
-          <input disabled [(ngModel)]="displayObject.DESCRIPCION" name="DESCRIPCION" type="text" class="form-control">
+          <label>Empaque</label>
+          <input disabled [(ngModel)]="displayObject.FACTOR_EMPAQUE" name="FACTOR_EMPAQUE" type="number" class="form-control">
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col">
+        <div class="form-group">
+          <label>Costo</label>
+          <input disabled [(ngModel)]="displayObject.COSTO_PROM_LOC" name="COSTO" type="number" class="form-control">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label>Precio</label>
+          <input disabled [(ngModel)]="displayObject.PRECIO" name="PRECIO" type="number" class="form-control">
+        </div>
+      </div>
+      <div class="col">
         <div class="form-group">
           <label>Orden Mínima</label>
           <input disabled [(ngModel)]="displayObject.ORDEN_MINIMA" name="ORDEN_MINIMA" type="text" class="form-control">
@@ -27,29 +38,23 @@
       </div>
     </div>
 
-    <div class="row"> 
+    <div class="row">
       <div class="col">
         <div class="form-group">
-          <label>Empaque (unidades)</label>
-          <input disabled [(ngModel)]="displayObject.FACTOR_EMPAQUE" name="FACTOR_EMPAQUE" type="text" class="form-control">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label>Contratada</label>
+          <label>Cantidad Contratada</label>
           <input disabled [(ngModel)]="displayObject.CONTRATADA" name="CONTRATADA" type="text" class="form-control">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>Pendiente</label>
+          <label>Cantidad Pendiente</label>
           <input disabled [(ngModel)]="displayObject.PENDIENTE" name="PENDIENTE" type="text" class="form-control">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>Ordenada</label>
-          <input disabled [(ngModel)]="displayObject.ORDENADO" name="ORDENADO" type="text" class="form-control">
+          <label>Cantidad Ordenada</label>
+          <input disabled [(ngModel)]="displayObject.ORDENADA" name="ORDENADA" type="text" class="form-control">
         </div>
       </div>
     </div> 
@@ -80,15 +85,13 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Disponible</label>
+              <label>Cantidad Disponible</label>
               <input disabled [(ngModel)]="displayObject.CANT_DISPONIBLE" name="CANT_DISPONIBLE" type="text" class="form-control">
             </div>
           </div>
-        </div>
-        <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Pedida</label>
+              <label>Cantidad Pedida</label>
               <input disabled [(ngModel)]="displayObject.CANT_PEDIDA" name="CANT_PEDIDA" type="text" class="form-control">
             </div>
           </div>
@@ -96,8 +99,14 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>En Tránsito</label>
+              <label>Cantidad En Tránsito</label>
               <input disabled [(ngModel)]="displayObject.CANT_TRANSITO" name="CANT_TRANSITO" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label>Cantidad Reservada</label>
+              <input disabled [(ngModel)]="displayObject.CANT_RESERVADA" name="CANT_RESERVADA" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -114,7 +123,7 @@
           <div class="col">
             <div class="form-group">
               <label>Categoría (privado)</label>
-              <input disabled [(ngModel)]="displayObject.CLASE_ABC_privado" name="CLASE_ABC_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject['CLASE_ABC(Privado)']" name="CLASE_ABC_privado" type="text" class="form-control">
             </div>
           </div>
           <div class="col">
@@ -128,7 +137,7 @@
           <div class="col">
             <div class="form-group">
               <label>Disponible (privado)</label>
-              <input disabled [(ngModel)]="displayObject.CANT_DISPONIBLE_privado" name="CANT_DISPONIBLE_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject['CANT_DISPONIBLE (Privado)']" name="CANT_DISPONIBLE_privado" type="text" class="form-control">
             </div>
           </div>
           <div class="col">
@@ -142,13 +151,13 @@
           <div class="col">
             <div class="form-group">
               <label>Pedida (privado)</label>
-              <input disabled [(ngModel)]="displayObject.CANT_PEDIDA_privado" name="CANT_PEDIDA_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject['CANT_PEDIDA (Privado)']" name="CANT_PEDIDA_privado" type="text" class="form-control">
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label>Meses Disponibles Bod2 Privado</label>
-              <input disabled [(ngModel)]="displayObject.md02_privado" name="md02_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject.md02_priv" name="md02_privado" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -156,7 +165,7 @@
           <div class="col">
             <div class="form-group">
               <label>En Tránsito (privado)</label>
-              <input disabled [(ngModel)]="displayObject.CANT_TRANSITO_privado" name="CANT_TRANSITO_privado" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject['CANT_TRANSITO (Privado)']" name="CANT_TRANSITO_privado" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -266,37 +275,34 @@
 
 <nb-card *ngIf="displayObjectType=='privado'">
   <nb-card-header>
-    <h4 style="text-align: center; margin-top: 1%">Reporte: {{displayObject.ARTICULO}}</h4>
+    <h4 style="text-align: center; margin-top: 1%">{{displayObject.DESCRIPCION}}</h4>
   </nb-card-header>
 
   <nb-card-body>
 
     <div class="row">
-      <div class="col-md-2">
+      <div class="col">
         <div class="form-group">
-          <label>Categoría</label>
-          <input disabled [(ngModel)]="displayObject.CLASE_ABC" name="CLASE_ABC" type="text" class="form-control">
+          <label>ARTICULO</label>
+          <input disabled [(ngModel)]="displayObject.ARTICULO" name="ARTICULO" type="text" class="form-control">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>Descripción</label>
-          <input disabled [(ngModel)]="displayObject.DESCRIPCION" name="DESCRIPCION" type="text" class="form-control">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <label>Laboratorio</label>
-          <input disabled [(ngModel)]="displayObject.LABORATORIO" name="LABORATORIO" type="text" class="form-control">
+          <label>Empaque</label>
+          <input disabled [(ngModel)]="displayObject.FACTOR_EMPAQUE" name="FACTOR_EMPAQUE" type="number" class="form-control">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>Empaque (unidades)</label>
-          <input disabled [(ngModel)]="displayObject.FACTOR_EMPAQUE" name="FACTOR_EMPAQUE" type="text" class="form-control">
+          <label>Costo</label>
+          <input disabled [(ngModel)]="displayObject.COSTO_PROM_LOC" name="COSTO" type="number" class="form-control">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label>Precio</label>
+          <input disabled [(ngModel)]="displayObject['precio Venta']" name="PRECIO" type="number" class="form-control">
         </div>
       </div>
       <div class="col">
@@ -324,16 +330,12 @@
               <input disabled [(ngModel)]="displayObject.CANT_DISPONIBLE" name="CANT_DISPONIBLE" type="text" class="form-control">
             </div>
           </div>
-
-
           <div class="row">
             <div class="form-group">
               <label>Pedida</label>
               <input disabled [(ngModel)]="displayObject.CANT_PEDIDA" name="CANT_PEDIDA" type="text" class="form-control">
             </div>
           </div>
-
-
           <div class="row">
             <div class="form-group">
               <label>En Tránsito</label>
@@ -391,7 +393,7 @@
           <div class="col">
             <div class="form-group">
               <label>Disponibilidad Equivalente</label>
-              <input disabled [(ngModel)]="displayObject.de" name="de" type="text" class="form-control">
+              <input disabled [(ngModel)]="displayObject.Equivalente" name="de" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -417,13 +419,11 @@
             </div>
           </div>
         </div>
-
       </nb-card-body>
     </nb-card>
   </div>
 </div>
 
 <nb-card *ngIf="displayObjectType=='privado'">
-    <button class="btn btn-hero-info btn-demo" (click)="close()">Cerrar</button>
+  <button class="btn btn-hero-info btn-demo" (click)="close()">Cerrar</button>
 </nb-card>
-

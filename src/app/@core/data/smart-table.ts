@@ -1,6 +1,6 @@
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of as ObservableOf, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -946,6 +946,62 @@ export class SmartTableData {
     // Contratada/Ordenada/Pendiente values
     COPData: Object[] = [];
 
+    testPrivData = [{
+      'ARTICULO': '13705051',
+      'DESCRIPCION': 'Sevredol (Morfina) 20 mg Tabletas Recubiertas 56\/Caja (BaRD PHaRMa)',
+      'BODEGA': '002',
+      'LABORATORIO': 'BARD PHARMACEUTICALS',
+      'CLASE_ABC': 'A',
+      'COSTO_PROM_LOC': '530.98200000',
+      'ORDEN_MINIMA': '13.1831',
+      'FACTOR_EMPAQUE': '56.00000000',
+      'CANT_DISPONIBLE': '.00000000',
+      'CANT_TRANSITO': '.00000000',
+      'CANT_PEDIDA': '.00000000',
+      'CANT_RESERVADA': '.00000000',
+      'PRECIO_VENTA': null,
+      'null': 2017,
+      'ENERO': '.00000000',
+      'FEBRERO': '.00000000',
+      'MARZO': '.00000000',
+      'ABRIL': '.00000000',
+      'MAYO': '.00000000',
+      'JUNIO': '1041414.99620000',
+      'JULIO': '.00000000',
+      'AGOSTO': '.00000000',
+      'SEPTIEMBRE': '.00000000',
+      'OCTUBRE': '.00000000',
+      'NOVIEMBRE': '.00000000',
+      'DICIEMBRE': '.00000000'
+    },
+    {
+      'ARTICULO': '10102011',
+      'DESCRIPCION': 'Pancuronio 2mg\/ml Sol. iny. 2ml\/ampolla unidad (Naprod)',
+      'BODEGA': '002',
+      'LABORATORIO': 'Naprod',
+      'CLASE_ABC': 'A',
+      'COSTO_PROM_LOC': '19.86650000',
+      'ORDEN_MINIMA': '352.3519',
+      'FACTOR_EMPAQUE': '1.00000000',
+      'CANT_DISPONIBLE': '.00000000',
+      'CANT_TRANSITO': '.00000000',
+      'CANT_PEDIDA': '.00000000',
+      'CANT_RESERVADA': '.00000000',
+      'PRECIO_VENTA': '85.00000000',
+      'null': 2016,
+      'ENERO': '11573.50000000',
+      'FEBRERO': '.00000000',
+      'MARZO': '.00000000',
+      'ABRIL': '.00000000',
+      'MAYO': '.00000000',
+      'JUNIO': '.00000000',
+      'JULIO': '.00000000',
+      'AGOSTO': '.00000000',
+      'SEPTIEMBRE': '.00000000',
+      'OCTUBRE': '.00000000',
+      'NOVIEMBRE': '.00000000',
+      'DICIEMBRE': '.00000000'
+    }];
 
     constructor(private http: HttpClient) {
       this.CAContractData.forEach(article => {
@@ -960,11 +1016,12 @@ export class SmartTableData {
     }
 
     getCAData(): Observable<any> {
-        return this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA');
+        return this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/ESTADISTICA_CA');
     }
 
     getPrivData(): Observable<any> {
-        return this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/VISTA');
+      //return of(this.testPrivData);
+      return this.http.get('http://186.1.15.164:8448/gmv_rest/index.php/ESTADISTICA_PRIV');
     }
 
 }

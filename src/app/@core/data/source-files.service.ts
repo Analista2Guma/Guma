@@ -13108,7 +13108,7 @@ export class SourceFilesService {
          SEP_19: 256300,
          OCT_19: null,
          PENDIENTE_entrega: 0,
-         ORDENADO:   285400 ,
+         ORDENADO:   285400,
          ORDENADO_pct: 815,
          PENDIENTE_orden: 267900,
          PENDIENTE_valor:   254237100,
@@ -15261,7 +15261,7 @@ export class SourceFilesService {
       HUTT: 'Y',
     },
   ],
-]);
+  ]);
 
   constructor() {}
 

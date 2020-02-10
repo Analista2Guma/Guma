@@ -8,7 +8,7 @@ import { UserService } from '../../@core/data/user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  privData = this.userService.privData;
+
   caData: Object[];
   summaryData: Object[];
   source = new LocalDataSource();
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
         width: '150%',
       },
       ARTICULO: {
-        title: '#Articulo',
+        title: 'Articulo',
       },
       CLASE_ABC: {
         title: 'Categoria',
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       FACTOR_EMPAQUE: {
         title: 'Empaque (unidades)',
       },
-      cant_pedir_ca: {
+      cantPedir: {
         title: 'Cantidad Pedir (CA)',
       },
       cant_pedir_priv: {
@@ -47,7 +47,10 @@ export class DashboardComponent implements OnInit {
     },
   };
 
-  constructor(private userService: UserService) {}// ,
+  constructor(private userService: UserService) {
+    console.log("Priv Data: ",this.userService.privData);
+    this.source = new LocalDataSource(this.userService.privData);
+  }// ,
               // private router: Router,
               // private route: ActivatedRoute) {}
 
@@ -57,18 +60,5 @@ export class DashboardComponent implements OnInit {
     this.popupData = event.data;
   }
 
-  ngOnInit() {
-    // console.log(this.userService.CAData);
-    this.userService.getCAData()
-    .subscribe(caRes => {
-      this.caData = caRes;
-      this.source.load(this.caData);
-      this.settings.noDataMessage = '0 Resultados';
-    });
-
-    this.userService.getPrivData()
-    .subscribe(privRes => {
-      this.privData = privRes;
-    });
-  }
+  ngOnInit() {}
 }

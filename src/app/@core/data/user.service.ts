@@ -9,7 +9,7 @@ export class UserService {
   user: Object;
   displayObject: Object;
   displayObjectType: String;
-  CAData: Object[];
+  CAData: Map<string, Object>;
   privData: Object[];
   popupData: Object;
 
@@ -43,7 +43,7 @@ export class UserService {
     return observableOf(this.displayObjectType);
   }
 
-  setCAData( obj: Object[] ) {
+  setCAData( obj: Map<string, Object> ) {
     // console.log("CAData being set");
     this.CAData = obj;
   }

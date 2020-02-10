@@ -14,6 +14,13 @@ export class FormComponent implements OnInit {
 
   constructor(private router: Router,
               private userService: UserService) {
+    this.userService.getDisplayObject()
+    .subscribe((product: any) => {
+      console.log(product);
+      this.displayObject = product;
+    });
+    this.userService.getDisplayObjectType()
+    .subscribe((objType: any) => this.displayObjectType = objType);
   }
 
   close() {
@@ -22,10 +29,6 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getDisplayObject()
-    .subscribe((product: any) => this.displayObject = product);
-    this.userService.getDisplayObjectType()
-    .subscribe((objType: any) => this.displayObjectType = objType);
     if (!this.displayObject ) this.router.navigate(['pages/ca']);
   }
 }
