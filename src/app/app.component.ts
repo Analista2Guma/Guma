@@ -142,8 +142,8 @@ export class AppComponent implements OnInit {
 
       this.table.getPrivData()
     .subscribe(res => {
-      //console.log(res);
-      //const rawPrivData = res;
+      // console.log(res);
+      // const rawPrivData = res;
       const rawPrivData = res.data;
       rawPrivData.forEach(product => {
         if (product['YEAR'] < 2019) return;
