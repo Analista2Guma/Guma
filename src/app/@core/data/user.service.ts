@@ -10,7 +10,8 @@ export class UserService {
   displayObject: Object;
   displayObjectType: String;
   CAData: Map<string, Object>;
-  privData: Object[];
+  privData: Map<string, Object>;
+  aggregateData: Map<string, Object>;
   popupData: Object;
 
   constructor() {
@@ -44,7 +45,7 @@ export class UserService {
   }
 
   setCAData( obj: Map<string, Object> ) {
-    // console.log("CAData being set");
+    console.log("CAData being set: ", obj);
     this.CAData = obj;
   }
 
@@ -52,12 +53,22 @@ export class UserService {
     return observableOf(this.CAData);
   }
 
-  setPrivData( obj: Object[] ) {
+  setPrivData( obj: Map<string, Object> ) {
+    console.log("privData being set: ", obj);
     this.privData = obj;
   }
 
   getPrivData() {
     return observableOf(this.privData);
+  }
+
+  setAggregateData( obj: Map<string, Object> ) {
+    console.log("AggData being set: ", obj);
+    this.aggregateData = obj;
+  }
+
+  getAggregateData() {
+    return observableOf(this.aggregateData);
   }
 
   setPopupData( obj: Object ) {

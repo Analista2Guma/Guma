@@ -54,7 +54,7 @@ export class PrivadoComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.userService.privData);
-    this.source = new LocalDataSource(this.userService.privData);
+    this.source = new LocalDataSource(Array.from(this.userService.privData.values()));
     this.settings.noDataMessage = '0 Resultados';
   }
 

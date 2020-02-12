@@ -8,9 +8,6 @@ import { UserService } from '../../@core/data/user.service';
 })
 export class DashboardComponent implements OnInit {
 
-
-  caData: Object[];
-  summaryData: Object[];
   source = new LocalDataSource();
   popupData: Object = {};
   popup: Boolean = false;
@@ -48,8 +45,8 @@ export class DashboardComponent implements OnInit {
   };
 
   constructor(private userService: UserService) {
-    console.log("Priv Data: ",this.userService.privData);
-    this.source = new LocalDataSource(this.userService.privData);
+    this.source = new LocalDataSource(Array.from(this.userService.aggregateData.values()));
+    this.source.addFilter({field: 'pedir', search: 'PEDIR'});
   }// ,
               // private router: Router,
               // private route: ActivatedRoute) {}
