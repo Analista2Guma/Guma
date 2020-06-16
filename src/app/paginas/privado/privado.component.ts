@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
-import { UserService } from '../../@core/data/user.service';
+import { UsuarioService } from '../../@core/data/usuario.service';
 
 @Component({
   selector: 'ngx-privado',
@@ -49,7 +49,7 @@ export class PrivadoComponent implements OnInit {
   data: Object[];
 
   constructor(private router: Router,
-              private userService: UserService) {}
+              private userService: UsuarioService) {}
               // private table: SmartTableData) {}
 
   ngOnInit() {
@@ -61,7 +61,7 @@ export class PrivadoComponent implements OnInit {
   report(event, eventName: string): void {
     this.userService.setDisplayObject(event.data);
     this.userService.setDisplayObjectType('privado');
-    this.router.navigate(['pages/form']);
+    this.router.navigate(['paginas/formulario']);
   }
 
 }

@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../@core/data/user.service';
+import { UsuarioService } from '../../@core/data/usuario.service';
 
 
 @Component({
-  selector: 'ngx-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  selector: 'ngx-formulario',
+  templateUrl: './formulario.component.html',
+  styleUrls: ['./formulario.component.scss'],
 })
-export class FormComponent implements OnInit {
+export class FormularioComponent implements OnInit {
   displayObject: Object;
   displayObjectType: String;
 
   constructor(private router: Router,
-              private userService: UserService) {
+              private userService: UsuarioService) {
     this.userService.getDisplayObject()
     .subscribe((product: any) => {
-      console.log(product);
       this.displayObject = product;
     });
     this.userService.getDisplayObjectType()
@@ -24,11 +23,11 @@ export class FormComponent implements OnInit {
   }
 
   close() {
-    const newRoute = 'pages/' + this.displayObjectType;
+    const newRoute = 'paginas/' + this.displayObjectType;
     this.router.navigate([newRoute]);
   }
 
   ngOnInit() {
-    if (!this.displayObject ) this.router.navigate(['pages/ca']);
+    if (!this.displayObject ) this.router.navigate(['paginas/ca']);
   }
 }

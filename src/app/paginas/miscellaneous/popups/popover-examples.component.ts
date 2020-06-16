@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../../@core/data/user.service';
+import { UsuarioService } from '../../../@core/data/usuario.service';
 
 @Component({
   selector: 'ngx-popover-form',
@@ -127,7 +127,7 @@ import { UserService } from '../../../@core/data/user.service';
 export class NgxPopoverFormComponent {
     popupData: Object = {};
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UsuarioService) {
         this.popupData = this.userService.popupData;
     }
 }

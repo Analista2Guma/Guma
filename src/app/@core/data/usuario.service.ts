@@ -4,15 +4,17 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable()
-export class UserService {
+export class UsuarioService {
 
   user: Object;
   displayObject: Object;
   displayObjectType: String;
-  CAData: Map<string, Object>;
-  privData: Map<string, Object>;
-  aggregateData: Map<string, Object>;
-  popupData: Object;
+  CAData: Object[];
+  privData: Object[];
+  sugerencias: Object[];
+  aggregateData: Map<string, Object[]>;
+  allProducts: Object[];
+  popupData = [];
 
   constructor() {
     // this.userArray = Object.values(this.users);
@@ -44,8 +46,8 @@ export class UserService {
     return observableOf(this.displayObjectType);
   }
 
-  setCAData( obj: Map<string, Object> ) {
-    console.log("CAData being set: ", obj);
+  setCAData( obj: Object[] ) {
+    // console.log("CAData being set: ", obj);
     this.CAData = obj;
   }
 
@@ -53,8 +55,8 @@ export class UserService {
     return observableOf(this.CAData);
   }
 
-  setPrivData( obj: Map<string, Object> ) {
-    console.log("privData being set: ", obj);
+  setPrivData( obj: Object[] ) {
+    // console.log("privData being set: ", obj);
     this.privData = obj;
   }
 
@@ -62,8 +64,8 @@ export class UserService {
     return observableOf(this.privData);
   }
 
-  setAggregateData( obj: Map<string, Object> ) {
-    console.log("AggData being set: ", obj);
+  setAggregateData( obj: Map<string, Object[]> ) {
+    // console.log("AggData being set: ", obj);
     this.aggregateData = obj;
   }
 
@@ -71,9 +73,14 @@ export class UserService {
     return observableOf(this.aggregateData);
   }
 
-  setPopupData( obj: Object ) {
-    this.popupData = obj;
+  setSugerencias( obj: Object[]) {
+    this.sugerencias = obj;
   }
+
+  getAllProducts() {
+    return observableOf(this.allProducts);
+  }
+
 
   // Component Functionality
   contains(array, element) {

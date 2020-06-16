@@ -2,23 +2,23 @@ import { NgModule } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
-import { PagesComponent } from './pages.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { PagesRoutingModule } from './pages-routing.module';
+import { PaginasComponent } from './paginas.component';
+import { SugerenciasModule } from './sugerencias/sugerencias.module';
+import { PaginasRutasModule } from './paginas-rutas.module';
 
 import { NbCardModule, NbSpinnerModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
 import { CruzAzulModule } from './cruz-azul/cruz-azul.module';
 import { PrivadoModule } from './privado/privado.module';
-import { FormComponent } from './form/form.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   imports: [
-    PagesRoutingModule,
+    PaginasRutasModule,
     ThemeModule,
     NbMenuModule,
-    DashboardModule,
+    SugerenciasModule,
     CruzAzulModule,
     PrivadoModule,
     NbCardModule,
@@ -26,9 +26,9 @@ import { FormComponent } from './form/form.component';
     NbSpinnerModule,
   ],
   declarations: [
-    PagesComponent,
-    FormComponent,
+    PaginasComponent,
+    FormularioComponent,
   ],
 })
-export class PagesModule {
+export class PaginasModule {
 }

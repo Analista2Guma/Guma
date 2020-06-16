@@ -1,0 +1,41 @@
+<ng2-smart-table [settings]="settings" [source]="source"
+  (userRowSelect)="info($event)">
+</ng2-smart-table>
+
+<div *ngIf="popup">
+  <nb-card>
+    <nb-card-header>Totales -- {{productInformation.DESCRIPCION}}</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col">
+          <label>Cantidad Disponible (Packs)</label>
+          <input disabled [(ngModel)]="productInformation.disponible_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad Pedida (Packs)</label>
+          <input disabled [(ngModel)]="productInformation.pedida_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad en Transito (Packs)</label>
+          <input disabled [(ngModel)]="productInformation.transito_total" class="form-control">
+        </div>
+        <div class="col">
+          <label>Cantidad Reservada (Packs)</label>
+          <input disabled [(ngModel)]="productInformation.reservada_total" class="form-control">
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  
+  <ul>
+    <li *ngFor="let prod of popupData">
+      <h2>{{prod['DESCRIPCION']}}</h2>
+      ARTICULO: {{prod['ARTICULO']}}.<br>
+      Disponibilidad en bodega 6: {{prod['md06']}} meses.<br>
+      Disponibilidad en bodega 2: {{prod['md_b2']}} meses.<br>
+      Promedio venta mensual: {{prod['pvm']}} packs.<br>
+    </li>
+  </ul>
+</div>
+
+

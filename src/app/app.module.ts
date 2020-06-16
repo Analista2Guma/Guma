@@ -12,7 +12,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from './@core/data/user.service';
+import { UsuarioService } from './@core/data/usuario.service';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -46,7 +46,7 @@ import {
   ],
   bootstrap: [AppComponent],
   providers: [
-    UserService,
+    UsuarioService,
   ],
 })
 export class AppModule {

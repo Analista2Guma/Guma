@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CruzAzulComponent } from '../cruz-azul/cruz-azul.component';
+import { PrivadoComponent } from './privado.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
-  declarations: [CruzAzulComponent],
+  declarations: [PrivadoComponent],
   imports: [
     CommonModule,
     Ng2SmartTableModule,
   ],
 })
-export class CruzAzulModule { }
+export class PrivadoModule { }

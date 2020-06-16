@@ -1,19 +1,19 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { PaginasComponent } from './paginas.component';
+import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { CruzAzulComponent } from './cruz-azul/cruz-azul.component';
 import { PrivadoComponent } from './privado/privado.component';
-import { FormComponent } from './form/form.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 const routes: Routes = [{
   path: '',
-  component: PagesComponent,
+  component: PaginasComponent,
   children: [
     {
-      path: 'dashboard',
-      component: DashboardComponent,
+      path: 'sugerencias',
+      component: SugerenciasComponent,
     },
     {
       path: 'cruz-azul',
@@ -24,12 +24,12 @@ const routes: Routes = [{
       component: PrivadoComponent,
     },
     {
-      path: 'form',
-      component: FormComponent,
+      path: 'formulario',
+      component: FormularioComponent,
     },
     {
       path: '',
-      redirectTo: 'pages',
+      redirectTo: 'paginas',
       pathMatch: 'full',
     },
   ],
@@ -39,5 +39,5 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule {
+export class PaginasRutasModule {
 }

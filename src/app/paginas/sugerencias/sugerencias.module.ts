@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
-import { DashboardComponent } from './dashboard.component';
+import { SugerenciasComponent } from './sugerencias.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NbCardModule, NbSearchModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     NbSearchModule,
   ],
   declarations: [
-    DashboardComponent,
+    SugerenciasComponent,
   ],
 })
-export class DashboardModule { }
+export class SugerenciasModule { }
